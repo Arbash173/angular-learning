@@ -1,0 +1,25 @@
+<!-- <h1>
+    Welcome to {{hotelName}}
+</h1> -->
+
+<app-header></app-header>
+
+
+<div [hidden]="hideRoom">
+Number of rooms
+    <div [innerText]=" numbersofroom">
+</div>
+
+</div>
+
+  roomList:RoomList[] = [
+<app-room-list [rooms]="roomList"  [title]= "hotelName" (roomSeleted)="selectRoom($event)"></app-room-list>
+
+<button (click)="addRoom()">
+  add Room
+</button>
+
+
+<button (click)="toggle()">
+toggle
+</button>

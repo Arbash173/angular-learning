@@ -1,0 +1,53 @@
+<div>
+
+    <h1 >
+        {{title}}pppsss
+    </h1>
+
+
+
+    <table>
+        <tr>
+            <th>
+                index
+            </th>
+            <th>
+                Even/odd
+            </th>
+            <th>
+                room number
+            </th>
+            <th>
+                room type
+            </th>
+            <th>
+                room amneties
+            </th>
+            <th>
+                checkin time
+            </th>
+
+            <th>
+                Select Room
+            </th>
+
+
+        </tr>
+
+        <tr [ngClass]=" e ?'even':'odd' " *ngFor="let item of rooms; let e = even ; let o = odd; let i = index">
+
+            <td>{{e?"Even":"Odd"}}</td>
+            <td>{{item.roomnum}}</td>
+            <td>{{item.roomType}}</td>
+            <td>{{item.amenities}}</td>
+            <td>{{item.checkinTime | date}}</td>
+
+            <td>
+                <button (click)="selectRoom(item)">
+                    click
+                </button>
+            </td>
+
+        </tr>
+    </table>
+</div>
