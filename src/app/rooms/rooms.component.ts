@@ -1,6 +1,7 @@
 import { AfterViewInit, Component, DoCheck, OnInit, ViewChild } from '@angular/core';
 import { Room, RoomList } from '../rooms';
 import { HeaderComponent } from '../header/header.component';
+import { RoomService } from './service/room.service';
 
 @Component({
   selector: 'app-rooms',
@@ -9,7 +10,7 @@ import { HeaderComponent } from '../header/header.component';
 })
 export class RoomsComponent implements OnInit , DoCheck, AfterViewInit{
 
-  constructor() { }
+  constructor( private roomsService:RoomService) { }
   ngAfterViewInit(): void {
     console.log(this.headerComponent)
   }
@@ -27,42 +28,43 @@ export class RoomsComponent implements OnInit , DoCheck, AfterViewInit{
     availableRooms:5,
     bookedRooms:2
   }
+  roomList:RoomList[] = []
 
-
-  roomList:RoomList[] = [
-    {
-      roomType:'Delux room',
-      roomnum:1,
-      amenities:'Ac, tv, fridge',
-      price:500,
-      image:'sadad',
-      checkinTime:new Date('11-nov-2024'),
-      checkoyTime:new Date('13-nov-2024'),
-    },
-    {
-      roomType:'Delux room',
-      roomnum:2,
-      amenities:'Ac, tv, fridge',
-      price:500,
-      image:'sadad',
-      checkinTime:new Date('11-nov-2024'),
-      checkoyTime:new Date('13-nov-2024'),
-    },
-    {
-      roomType:'Delux room',
-      roomnum:3,
-      amenities:'Ac, tv, fridge',
-      price:500,
-      image:'sadad',
-      checkinTime:new Date('11-nov-2024'),
-      checkoyTime:new Date('13-nov-2024'),
-    },
-  ]
+  // roomList:RoomList[] = [
+  //   {
+  //     roomType:'Delux room',
+  //     roomnum:1,
+  //     amenities:'Ac, tv, fridge',
+  //     price:500,
+  //     image:'sadad',
+  //     checkinTime:new Date('11-nov-2024'),
+  //     checkoyTime:new Date('13-nov-2024'),
+  //   },
+  //   {
+  //     roomType:'Delux room',
+  //     roomnum:2,
+  //     amenities:'Ac, tv, fridge',
+  //     price:500,
+  //     image:'sadad',
+  //     checkinTime:new Date('11-nov-2024'),
+  //     checkoyTime:new Date('13-nov-2024'),
+  //   },
+  //   {
+  //     roomType:'Delux room',
+  //     roomnum:3,
+  //     amenities:'Ac, tv, fridge',
+  //     price:500,
+  //     image:'sadad',
+  //     checkinTime:new Date('11-nov-2024'),
+  //     checkoyTime:new Date('13-nov-2024'),
+  //   },
+  // ]
 
 
 
   ngOnInit(): void {
   console.log(this.headerComponent)
+  this.roomList = this.roomsService.getRooms()
   }
 
   toggle(){
