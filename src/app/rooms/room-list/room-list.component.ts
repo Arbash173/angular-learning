@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
+import { Observable } from 'rxjs';
 import { RoomList } from 'src/app/rooms';
 
 @Component({
@@ -21,7 +22,21 @@ export class RoomListComponent implements OnInit, OnChanges {
 
   @Output() roomSeleted = new EventEmitter<RoomList>();
 
+  stream = new Observable(observer => {
+    observer.next(1)
+    observer.next(2)
+    observer.next(3)
+    observer.complete();
+
+  })
+
   ngOnInit(): void {
+    this.stream.subscribe({
+      next:(value) => console.log(value),
+      complete:() => console.log("complete"),
+      error:(err) => console.log(err)
+    })
+
   }
 
 

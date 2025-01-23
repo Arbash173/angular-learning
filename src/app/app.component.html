@@ -1,17 +1,17 @@
-
+<!-- 
 <div [ngSwitch]="role">
   <div *ngSwitchCase="'user'">
     Welcome User
   </div>
   <div *ngSwitchCase="'Admin'">
     <app-rooms></app-rooms>
-    <!-- <div>
+    <div>
       <ng-template #user>  </ng-template>
        <h1>
         welcome user
        </h1>
     
-    </div> -->
+    </div>
   </div>
   <div *ngSwitchDefault>
     Not authorized to view
@@ -28,4 +28,12 @@
     This is from ngcontent
   </h1>
 </app-container>
+ -->
 
+
+
+ <mat-toolbar color="primary">Test Toolbar</mat-toolbar>
+<mat-sidenav-container>
+  <mat-sidenav mode="side" opened>Sidenav</mat-sidenav>
+  <mat-sidenav-content>Main Content</mat-sidenav-content>
+</mat-sidenav-container>
